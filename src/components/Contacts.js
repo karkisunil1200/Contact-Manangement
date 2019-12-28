@@ -28,6 +28,12 @@ class Contacts extends Component {
       ]
     };
   }
+
+  deleteItem = itemId => {
+    const newList = this.state.contacts.filter(contact => contact.id !== itemId);
+    this.setState({contacts: newList});
+  };
+
   render() {
     const {contacts} = this.state;
     return (
@@ -38,6 +44,8 @@ class Contacts extends Component {
             email={contact.email}
             phone={contact.phone}
             key={contact.id}
+            id={contact.id}
+            deleteItem={this.deleteItem}
           />
         ))}
       </div>

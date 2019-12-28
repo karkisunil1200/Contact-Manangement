@@ -6,6 +6,11 @@ class Contact extends Component {
     showContactInfo: false
   };
 
+  delete = props => {
+    this.props.deleteItem(this.props.id);
+    console.log(this.props.id);
+  };
+
   onShowClick = () => {
     this.setState({showContactInfo: !this.state.showContactInfo});
   };
@@ -17,7 +22,11 @@ class Contact extends Component {
       <div className='card card-body mb-3'>
         <h4>
           {name} <i onClick={this.onShowClick} className='fas fa-sort-down' />{' '}
-          <i className='fas fa-times' style={{cursor: 'pointer', float: 'right', color: 'red'}} />
+          <i
+            onClick={this.delete}
+            className='fas fa-times'
+            style={{cursor: 'pointer', float: 'right', color: 'red'}}
+          />
         </h4>
 
         {showContactInfo ? (
