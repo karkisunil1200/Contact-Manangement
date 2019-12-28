@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class Contact extends Component {
   state = {
-    showContactInfo: true
+    showContactInfo: false
   };
 
   onShowClick = () => {
@@ -16,7 +16,8 @@ class Contact extends Component {
     return (
       <div className='card card-body mb-3'>
         <h4>
-          {name} <i onClick={this.onShowClick} className='fas fa-sort-down' />
+          {name} <i onClick={this.onShowClick} className='fas fa-sort-down' />{' '}
+          <i className='fas fa-times' style={{cursor: 'pointer', float: 'right', color: 'red'}} />
         </h4>
 
         {showContactInfo ? (
